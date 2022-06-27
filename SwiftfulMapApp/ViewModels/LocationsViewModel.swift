@@ -9,10 +9,11 @@ import Foundation
 import MapKit
 import SwiftUI
 import FirebaseFirestore
-//import Firebase
+import FirebaseStorage
+
 
 class LocationsViewModel: ObservableObject {
-    
+    @Published var findString = ""
     // All loaded locations
     @Published var locations: [Location] = []
     
@@ -101,13 +102,26 @@ class LocationsViewModel: ObservableObject {
                     let link = data["link"] as? String ?? ""
                     let name = data["name"] as? String ?? ""
                     let coordinate = data["coordinate"] as? GeoPoint
-                    let imageName = data["imageNames"] as? [String] ?? []
-                    self.locations.append(Location(name: name, cityName: cityName, coordinates: CLLocationCoordinate2D(latitude: coordinate?.latitude ?? 0, longitude: coordinate?.longitude ?? 0), description: description, imageNames: imageName, link: link))
+                    let imageNames = data["imageNames"] as? [String] ?? []
+                    
+                    self.locations.append(Location(name: name, cityName: cityName, coordinates: CLLocationCoordinate2D(latitude: coordinate?.latitude ?? 0, longitude: coordinate?.longitude ?? 0), description: description, imageNames: imageNames,link: link))
                     
 //                    print("\(document.documentID) => \(document.data())")
                 }
-//                self.mapLocation = self.locations.first!
+                self.mapLocation = self.locations.first!
             }
         }
+    }
+    func getUrl(findNames: String) -> String {
+        let storage = Storage.storage().reference()
+            storage.child("location/\(findNames).jpg").downloadURL{(url, err) in
+                if err != nil{
+                    print("didn't get the photo")
+                    print((err?.localizedDescription)!)
+                    return
+                }
+                self.findString = ("\(url!)")
+            }
+        return findString
     }
 }

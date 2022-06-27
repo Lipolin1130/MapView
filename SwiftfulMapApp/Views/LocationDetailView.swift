@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import SDWebImageSwiftUI
 
 struct LocationDetailView: View {
     
@@ -48,7 +49,8 @@ extension LocationDetailView {
     private var imageSection: some View {
         TabView {
             ForEach(location.imageNames, id: \.self) {
-                Image($0)
+                AnimatedImage(url: URL(string: vm.getUrl(findNames: $0)))
+//                Image($0)
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)

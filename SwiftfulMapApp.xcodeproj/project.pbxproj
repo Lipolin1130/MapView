@@ -20,6 +20,8 @@
 		023DCA2127544166009AC7ED /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023DCA2027544166009AC7ED /* LocationDetailView.swift */; };
 		D00336472868AF3D005D1F0B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D00336462868AF3D005D1F0B /* FirebaseFirestore */; };
 		D00336542868CA2D005D1F0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D00336532868CA2B005D1F0B /* GoogleService-Info.plist */; };
+		D003365728694274005D1F0B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D003365628694274005D1F0B /* FirebaseStorage */; };
+		D003365E28694FA5005D1F0B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D003365D28694FA5005D1F0B /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D003365E28694FA5005D1F0B /* SDWebImageSwiftUI in Frameworks */,
 				D00336472868AF3D005D1F0B /* FirebaseFirestore in Frameworks */,
+				D003365728694274005D1F0B /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +61,7 @@
 				D00336532868CA2B005D1F0B /* GoogleService-Info.plist */,
 				023DC9F92752B0A9009AC7ED /* SwiftfulMapApp */,
 				023DC9F82752B0A9009AC7ED /* Products */,
+				D003365528694273005D1F0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,13 @@
 			path = DataServices;
 			sourceTree = "<group>";
 		};
+		D003365528694273005D1F0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +157,8 @@
 			name = SwiftfulMapApp;
 			packageProductDependencies = (
 				D00336462868AF3D005D1F0B /* FirebaseFirestore */,
+				D003365628694274005D1F0B /* FirebaseStorage */,
+				D003365D28694FA5005D1F0B /* SDWebImageSwiftUI */,
 			);
 			productName = SwiftfulMapApp;
 			productReference = 023DC9F72752B0A9009AC7ED /* SwiftfulMapApp.app */;
@@ -176,6 +190,7 @@
 			mainGroup = 023DC9EE2752B0A9009AC7ED;
 			packageReferences = (
 				D00336452868AF3D005D1F0B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D003365C28694FA5005D1F0B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 023DC9F82752B0A9009AC7ED /* Products */;
 			projectDirPath = "";
@@ -429,6 +444,14 @@
 				kind = branch;
 			};
 		};
+		D003365C28694FA5005D1F0B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -436,6 +459,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D00336452868AF3D005D1F0B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		D003365628694274005D1F0B /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D00336452868AF3D005D1F0B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		D003365D28694FA5005D1F0B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D003365C28694FA5005D1F0B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

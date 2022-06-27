@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 struct LocationsListView: View {
     
     @EnvironmentObject private var vm: LocationsViewModel
@@ -39,7 +39,9 @@ extension LocationsListView {
     private func listRowView(location: Location) -> some View {
         HStack {
             if let imageName = location.imageNames.first {
-                Image(imageName)
+//                AnimatedImage(url: URL(string: vm.imageLocation.first!))
+                AnimatedImage(url:  URL(string: vm.getUrl(findNames: imageName)))
+//                Image(imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 45, height: 45)

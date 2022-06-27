@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct LocationPreviewView: View {
     
@@ -51,7 +52,9 @@ extension LocationPreviewView {
     private var imageSection: some View {
         ZStack {
             if let imageName = location.imageNames.first {
-                Image(imageName)
+//                AnimatedImage(url: URL(string: )
+                AnimatedImage(url: URL(string: vm.getUrl(findNames: imageName)))
+//                Image(imageName)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100)
